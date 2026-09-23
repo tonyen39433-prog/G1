@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>蓮花童子的生態尋寶記 - 樁位 1</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f7f9f5;
+            color: #333;
+            margin: 0;
+            padding: 10px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        header {
+            text-align: center;
+            border-bottom: 2px dashed #c8e6c9;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        header img {
+            max-width: 100%;
+            height: auto;
+            max-height: 180px;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+        h1 {
+            color: #2e7d32;
+            font-size: 1.6rem;
+            margin: 8px 0 4px;
+        }
+        h2 {
+            color: #558b2f;
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+        .section {
+            background: #f1f8e9;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .section h3 {
+            color: #33691e;
+            margin-top: 0;
+            font-size: 1.1rem;
+        }
+        audio {
+            width: 100%;
+            margin-top: 8px;
+        }
+        .task-box {
+            background: #ffffff;
+            border: 1px solid #dcedc8;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-bottom: 12px;
+        }
+        .options label {
+            display: block;
+            background: #fafafa;
+            border: 1px solid #ddd;
+            padding: 8px 10px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .options label:hover {
+            background: #f1f8e9;
+        }
+        .btn {
+            display: inline-block;
+            background: #689f38;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 8px;
+        }
+        .btn:hover {
+            background: #558b2f;
+        }
+        /* 通關獎勵畫面樣式（預設隱藏） */
+        #reward-modal {
+            display: none;
+            background: #fff8e1;
+            border: 2px solid #ffa000;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .badge-img {
+            max-width: 120px;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .footer-nav {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+    <script>
+        // 紀錄各任務完成狀態
+        var task1Done = false;
+        var task2Done = false;
+        var task3Done = false;
+
+        // 任務 1 完成確認
+        function finishTask1() {
+            var val = document.getElementById('relax-input').value.trim();
+            if(val === "") {
+                alert('請先輸入您感覺身體哪一部位放鬆了喔！');
+            } else {
+                task1Done = true;
+                alert('✨ 任務 1 完成！');
+                checkAllTasks();
+            }
+        }
+
+        // 任務 2 完成確認
+        function finishTask2() {
+            task2Done = true;
+            alert('✨ 任務 2 完成！');
+            checkAllTasks();
+        }
+
+        // 任務 3 答對確認
+        function finishTask3() {
+            task3Done = true;
+            alert('🎉 任務 3 科普小考驗答對！');
+            checkAllTasks();
+        }
+
+        // 檢查是否全部完成，若完成則自動顯示獎勵畫面
+        function checkAllTasks() {
+            if (task1Done && task2Done && task3Done) {
+                var rewardBox = document.getElementById('reward-modal');
+                rewardBox.style.display = 'block';
+                rewardBox.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <!-- 遊戲總標題 -->
+    <header>
+        <img src="01banner_logo.jpg" alt="蓮花童子的生態尋寶記" onerror="this.style.display='none'">
+        <h1>蓮花童子的生態尋寶記</h1>
+        <h2>《蕨妙有餘尋寶趣》</h2>
+    </header>
+
+    <!-- 遊戲方式說明 -->
+    <div class="section">
+        <h3>📖 尋寶指南：這個遊戲怎麼玩？</h3>
+        <ul style="margin: 0; padding-left: 20px; font-size: 0.95rem;">
+            <li><strong>看地圖，找生態樁位</strong>：依照定向越野地圖尋找指定樁位。</li>
+            <li><strong>掃描 QR Code</strong>：進入專屬互動網頁聆聽任務與故事。</li>
+            <li><strong>完成任務</strong>：請依照現場展版、網頁與紙本手冊指引動腦、觀察。</li>
+            <li>包含手繪任務，請記得攜帶紙筆喔！</li>
+        </ul>
+    </div>
+
+    <!-- 樁位 1 標題 -->
+    <div style="text-align: center; margin-bottom: 12px;">
+        <span style="background: #33691e; color: white; padding: 3px 10px; border-radius: 20px; font-size: 0.85rem;">樁位編號：No.1</span>
+        <h2 style="color: #2e7d32; margin-top: 6px; font-size: 1.3rem;">《在松樹前，慢下步伐》</h2>
+    </div>
+
+    <!-- 第一部分：情境引導與故事 -->
+    <div class="section">
+        <h3>🌿 故事導覽</h3>
+        <div style="text-align: center;">
+            <img src="01intro.jpg" alt="樁位1情境插圖" style="max-width: 100%; max-height: 200px; border-radius: 8px; margin-bottom: 8px;" onerror="this.style.display='none'">
+        </div>
+        <p style="font-size: 0.95rem;">松樹一年四季常青，耐受風吹如如不動，彷彿是一尊從容慈祥的來迎菩薩。蓮花童子看到眼前綠意盎然的羅漢松和五葉松，再看看自己毛毛躁躁的心，希望也能像松樹一樣安住於天地之間……</p>
+        
+        <audio controls>
+            <source src="01story.mp3" type="audio/mp4">
+            <source src="01story.mp3" type="audio/mpeg">
+            您的瀏覽器不支援音訊播放。
+        </audio>
+    </div>
+
+    <!-- 第二部分：現場互動任務 -->
+    <div class="section">
+        <h3>🍃 現場互動任務</h3>
+
+        <!-- 任務 1 -->
+        <div class="task-box">
+            <h4 style="margin-top:0; color:#2e7d32;">任務 1：慢下腳步（身心覺察）</h4>
+            <p style="font-size: 0.95rem;">請和家人（或夥伴）一起做三次深呼吸，感覺身體放鬆的感覺。</p>
+            <label for="relax-input" style="font-size: 0.85rem; color: #555;">我感覺身體哪一部位放鬆了呢？</label>
+            <input type="text" id="relax-input" placeholder="例如：肩膀、胸口..." style="width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 8px;">
+            <button class="btn" style="background: #558b2f; padding: 6px 12px; font-size: 0.9rem;" onclick="finishTask1()">✅ 記錄並完成任務 1</button>
+        </div>
+
+        <!-- 任務 2 -->
+        <div class="task-box">
+            <h4 style="margin-top:0; color:#2e7d32;">任務 2：找找看與畫畫看</h4>
+            <p style="font-size: 0.95rem;">看一看，羅漢松和五葉松的葉子形狀有甚麼不同？請直接在紙上把它畫下來。</p>
+            <button class="btn" onclick="finishTask2()">✅ 我已經在紙上畫好了</button>
+        </div>
+    </div>
+
+    <!-- 第三部分：小科普補給站 -->
+    <div class="section">
+        <h3>🔬 小科普補給站</h3>
+        <p style="font-size: 0.95rem;">松樹為什麼能夠四季常青？點擊下方聆聽解說：</p>
+        <audio controls>
+            <source src="01science.mp3" type="audio/mp4">
+            <source src="01science.mp3" type="audio/mpeg">
+            您的瀏覽器不支援音訊播放。
+        </audio>
+
+        <div class="task-box" style="margin-top: 12px;">
+            <h4 style="margin-top:0; color:#2e7d32;">任務 3：科普小考驗</h4>
+            <p style="font-size: 0.95rem;"><strong>Q：想一想，為什麼松樹一年四季安然常青？</strong></p>
+            <div class="options">
+                <label><input type="radio" name="q3" onclick="alert('再想一想喔！葉子還是會老化代謝的～')"> 因為他的葉子不會變黃變老</label>
+                <label><input type="radio" name="q3" onclick="alert('不對喔！跟台灣四季如春沒有直接關係～')"> 因為台灣氣候四季如春</label>
+                <label><input type="radio" name="q3" onclick="finishTask3()"> 因為樹葉生長緩慢，能夠忍受氣候變化。雖然樹葉老化凋萎，卻不會全部的樹葉一起掉落，且新生的綠葉持續生長，因此外觀上永遠保持長青。</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🏆 隱藏的通關獎勵畫面 (當任務 1、2、3 皆完成後自動彈出) -->
+    <div id="reward-modal">
+        <h3 style="color: #e65100; margin-top: 0;">🎉 太棒了！任務 1、2、3 全部通關！</h3>
+        <p style="font-size: 0.95rem; color: #5d4037;">您已成功解鎖【樁位 1】專屬通關徽章！</p>
+        
+        <!-- 樁位 1 徽章圖片 -->
+        <div>
+            <img src="01badge.png" alt="樁位1通關徽章" class="badge-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'120\'><rect width=\'100%\' height=\'100%\' rx=\'60\' fill=\'%23ffe082\'/><text x=\'50%\' y=\'50%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%23e65100\' font-size=\'14\'>松樹徽章</text></svg>'">
+        </div>
+
+        <p style="font-size: 0.85rem; color: #795548; margin-top: 5px;">(恭喜完成第一站！)</p>
+        
+        <div class="footer-nav" style="border-top: 1px dashed #ffa000; margin-top: 15px; padding-top: 10px;">
+            <p style="font-size: 0.9rem; color: #666;">目前進度：[ 1 / 3 ]</p>
+            <p style="font-size: 1.1rem; color: #e65100; margin-top: 10px;"><strong>準備出發！請前往：樁位 32 蕨妙有餘展示區</strong></p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
